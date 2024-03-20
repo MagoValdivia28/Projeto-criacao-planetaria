@@ -1,18 +1,25 @@
 import { View } from "react-native";
+import { useNavigation } from '@react-navigation/native';
 
 import styles from "./styles";
 import Title from "../../components/Title";
 import TouchButton from "../../components/TouchButton";
-import { user } from "../../data/Profile";
+import { Pla } from "../../data/planets";
 
 export default function Category() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Title title="Category" />
-
-      <TouchButton route="Category" title="Go to Category" />
-
-      <TouchButton route="Profile" title="Go to Profile" data={user} />
+      <TouchButton 
+        title="Go to Profile" 
+        onPress={() => navigation.navigate('Profile')}
+      />
+      <TouchButton 
+        title="Go to Home" 
+        onPress={() => navigation.navigate('Home')}
+      />
     </View>
   );
 }

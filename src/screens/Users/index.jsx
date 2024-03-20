@@ -4,89 +4,162 @@ import { Text, TextInput, TouchableOpacity, View } from "react-native";
 import styles from "./styles";
 import Title from "../../components/Title";
 import TouchButton from "../../components/TouchButton";
-import { user } from "../../data/Profile";
-
-import User from "../../models/user/User";
-import UsersRepository from "../../models/user/UserRepository";
+import PlanetaConquistado  from "../../models/user/Planeta";
+import  PlanetasRepository from "../../models/user/PlanetaRepository";
 import { useNavigation } from "@react-navigation/native";
 
-const usersList = new UsersRepository();
+const planetasRepository = new PlanetasRepository(); 
 
-let userId = 1; // Inicia o ID do usuário
+let planetaId = 1; 
 
 export default function Users() {
   const navigation = useNavigation();
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [age, setAge] = useState("");
+  const [nomePlaneta, setNomePlaneta] = useState("");
+  const [dataConquista, setDataConquista] = useState("");
+  const [corPrimaria, setCorPrimaria] = useState("");
+  const [corSecundaria, setCorSecundaria] = useState("");
+  const [populacao, setPopulacao] = useState("");
+  const [recursosNaturais, setRecursosNaturais] = useState("");
+  const [numAssentamentos, setNumAssentamentos] = useState("");
+  const [localizacao, setLocalizacao] = useState("");
+  const [comunicacao, setComunicacao] = useState("");
+  const [governanteNome, setGovernanteNome] = useState("");
+  const [governanteTitulo, setGovernanteTitulo] = useState("");
 
-  const [allUsers, setAllUsers] = useState([]);
+  const [allPlanetas, setAllPlanetas] = useState([]);
 
-  const createUser = () => {
-    const newUser = new User(userId++, name, email, parseInt(age) || 0); // Incrementa o ID após o uso
+  const createPlaneta = () => {
+    const novoPlaneta = new PlanetaConquistado(
+      nomePlaneta,
+      dataConquista,
+      corPrimaria,
+      corSecundaria,
+      parseInt(populacao) || 0,
+      recursosNaturais,
+      parseInt(numAssentamentos) || 0,
+      localizacao,
+      comunicacao ? { frequencia: comunicacao, codificacao: 'AES-256' } : null,
+      { nome: governanteNome, titulo: governanteTitulo }
+    );
 
-    usersList.add(newUser);
-    setAllUsers(usersList.getAll());
+    planetasRepository.add(novoPlaneta);
+    setAllPlanetas(planetasRepository.getAll());
 
     clearInputs();
 
-    return newUser;
+    return novoPlaneta;
   };
 
   const clearInputs = () => {
-    setName("");
-    setEmail("");
-    setAge("");
+    setNomePlaneta("");
+    setDataConquista("");
+    setCorPrimaria("");
+    setCorSecundaria("");
+    setPopulacao("");
+    setRecursosNaturais("");
+    setNumAssentamentos("");
+    setLocalizacao("");
+    setComunicacao("");
+    setGovernanteNome("");
+    setGovernanteTitulo("");
   };
 
   return (
     <View style={styles.container}>
-      <Title title="Users" />
+      <Title title="Planets" />
 
       <View>
         <TextInput
-          placeholder="Digite o nome do aluno"
+          placeholder="Nome do Planeta"
           style={styles.userInput}
-          onChangeText={setName}
-          value={name}
+          onChangeText={setNomePlaneta}
+          value={nomePlaneta}
         />
         <TextInput
-          placeholder="Digite o email do aluno"
+          placeholder="Data de Conquista"
           style={styles.userInput}
-          onChangeText={setEmail}
-          value={email}
+          onChangeText={setDataConquista}
+          value={dataConquista}
         />
         <TextInput
-          placeholder="Digite a idade do aluno"
+          placeholder="Cor Primária"
           style={styles.userInput}
-          onChangeText={(text) => setAge(text)}
-          value={age}
+          onChangeText={setCorPrimaria}
+          value={corPrimaria}
+        />
+        <TextInput
+          placeholder="Cor Secundária"
+          style={styles.userInput}
+          onChangeText={setCorSecundaria}
+          value={corSecundaria}
+        />
+        <TextInput
+          placeholder="População"
+          style={styles.userInput}
+          onChangeText={setPopulacao}
+          value={populacao}
           keyboardType="numeric"
         />
+        <TextInput
+          placeholder="Recursos Naturais"
+          style={styles.userInput}
+          onChangeText={setRecursosNaturais}
+          value={recursosNaturais}
+        />
+        <TextInput
+          placeholder="Número de Assentamentos"
+          style={styles.userInput}
+          onChangeText={setNumAssentamentos}
+          value={numAssentamentos}
+          keyboardType="numeric"
+        />
+        <TextInput
+          placeholder="Localização"
+          style={styles.userInput}
+          onChangeText={setLocalizacao}
+          value={localizacao}
+        />
+        <TextInput
+          placeholder="Comunicação (Frequência)"
+          style={styles.userInput}
+          onChangeText={setComunicacao}
+          value={comunicacao}
+        />
+        <TextInput
+          placeholder="Nome do Governante"
+          style={styles.userInput}
+          onChangeText={setGovernanteNome}
+          value={governanteNome}
+        />
+        <TextInput
+          placeholder="Título do Governante"
+          style={styles.userInput}
+          onChangeText={setGovernanteTitulo}
+          value={governanteTitulo}
+        />
 
-        <TouchableOpacity style={styles.button} onPress={createUser}>
-          <Text>Criar Usuário</Text>
+        <TouchableOpacity style={styles.button} onPress={createPlaneta}>
+          <Text>Criar Planeta</Text>
         </TouchableOpacity>
       </View>
 
       <View>
-        {allUsers.length > 0 ? (
-          allUsers.map((user) => (
+        {allPlanetas.length > 0 ? (
+          allPlanetas.map((planeta) => (
             <TouchableOpacity
-              key={user.id}
-              onPress={() => navigation.navigate("Profile", { data: user })}
+              key={planetaId++}
+              onPress={() => navigation.navigate("Profile", { data: planeta })}
             >
-              <Text>{user.name}</Text>
+              <Text>{planeta.nome}</Text>
             </TouchableOpacity>
           ))
         ) : (
-          <Text>Não há usuários cadastrados</Text>
+          <Text>Não há planetas cadastrados</Text>
         )}
       </View>
 
       <TouchButton route="Category" title="Go to Category" />
-      <TouchButton route="Profile" title="Go to Profile" data={user} />
     </View>
   );
 }
