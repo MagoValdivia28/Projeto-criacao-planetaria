@@ -19,58 +19,51 @@ export default function Home() {
 
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.backgroundImage}>
-        <Text style={styles.title}>Bem-vindo ao sistema interestrelar </Text>
-      </View>
-      <View style={styles.separator}></View>
-      <View style={styles.container2}>
-        <Text style={styles.planetText}>
-          Este site foi desenvolvido para facilitar a gestão de planetas
-          conquistados. Aqui, você pode cadastrar novos planetas, remover
-          aqueles que não estão mais sob seu domínio e atualizar informações de
-          planetas já cadastrados. Tudo para tornar sua jornada de conquista
-          espacial mais organizada e eficiente.
-        </Text>
+      <View style={styles.container3}>
+        <View style={styles.backgroundImage}>
+          <Text style={styles.title}>Bem-vindo ao sistema interestrelar </Text>
         </View>
-      <View style={styles.container2}>
-        <Text style={styles.title2}>Lista de Planetas:</Text>
+        <View style={styles.separator}></View>
+        <View style={styles.container2}>
+          <Text style={styles.planetText}>
+            Este site foi desenvolvido para facilitar a gestão de planetas
+            conquistados. Aqui, você pode cadastrar novos planetas, remover
+            aqueles que não estão mais sob seu domínio e atualizar informações
+            de planetas já cadastrados. Tudo para tornar sua jornada de
+            conquista espacial mais organizada e eficiente.
+          </Text>
+        </View>
+        <View style={styles.container4}>
+          <Title style={styles.planetText} title="Planetas" />
+          
 
-        <Title style={styles.planetText} title="Planetas" />
-        <Text>Planetas Cadastrados:</Text>
-
-        {allPlanets.length > 0 ? (
-          <View>
-            {allPlanets.map((planet) => (
-              <View key={planet.id} style={styles.planetContainer}>
-                <View>
-                  <Text style={styles.planetText}>{planet.name}</Text>
-                  <Text style={styles.planetText}>{planet.date}</Text>
-                  <Text style={styles.planetText}>{planet.cor1}</Text>
-                  <Text style={styles.planetText}>{planet.cor2}</Text>
-                  <Text style={styles.planetText}>{planet.populacao}</Text>
-                  <Text style={styles.planetText}>{planet.galaxia}</Text>
-                  <Text style={styles.planetText}>{planet.sistemaSolar}</Text>
-                  <Text style={styles.planetText}>
-                    {planet.coordenadasEspaciais}
-                  </Text>
-                  <Text style={styles.planetText}>{planet.governante}</Text>
+          {allPlanets.length > 0 ? (
+            <View>
+              {allPlanets.map((planet) => (
+                <View key={planet.id} style={styles.planetContainer}>
+                  <View>
+                    <Text style={styles.planetText}>Nome do planeta: {planet.name}</Text>
+                    <Text style={styles.planetText}>data de contato: {planet.date}</Text>
+                    <Text style={styles.planetText}>população atual: {planet.populacao}</Text>
+                    <Text style={styles.planetText}>governante atual: {planet.governante}</Text>
+                  </View>
+                  <View>
+                    <TouchableOpacity
+                      style={styles.detailsButton}
+                      onPress={() =>
+                        navigation.navigate("details", { data: planet })
+                      }
+                    >
+                      <Text style={styles.detailsButtonText}>Detalhes</Text>
+                    </TouchableOpacity>
+                  </View>
                 </View>
-                <View>
-                  <TouchableOpacity
-                    style={styles.detailsButton}
-                    onPress={() =>
-                      navigation.navigate("details", { data: planet })
-                    }
-                  >
-                    <Text style={styles.detailsButtonText}>Detalhes</Text>
-                  </TouchableOpacity>
-                </View>
-              </View>
-            ))}
-          </View>
-        ) : (
-          <Text>Não há planetas cadastrados...</Text>
-        )}
+              ))}
+            </View>
+          ) : (
+            <Text>Não há planetas cadastrados...</Text>
+          )}
+        </View>
       </View>
     </ScrollView>
   );
