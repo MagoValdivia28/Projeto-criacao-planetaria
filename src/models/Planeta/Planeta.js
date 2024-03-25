@@ -1,8 +1,8 @@
-class Planeta {
-  constructor(name, dataConquista, cor1, cor2, populacao, galaxia, sistemaSolar, coordenadasEspaciais, governante) {
+class planetadata {
+  constructor(name, date, cor1, cor2, populacao, galaxia, sistemaSolar, coordenadasEspaciais, governante) {
     this.id = this.generateId();
     this.name = name;
-    this.dataConquista = dataConquista;
+    this.date = date;
     this.cor1 = cor1;
     this.cor2 = cor2;
     this.populacao = populacao;
@@ -18,4 +18,4 @@ class Planeta {
   }
 }
 
-export default Planeta;
+export default planetadata;

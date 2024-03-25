@@ -1,13 +1,8 @@
-import Planet from './Planeta.js';
-import planetdata from '../../data/planets.js';
-
-const planetaRepositorio = new PlanetaRepositorio();
-
-const newPlanet = new Planet(planetdata.name, planetdata.date, planetdata.cores, planetdata.população, planetdata.galaxia, planetdata.sistemasolar, planetdata.coordenadasespaciais, planetdata.governante || 0);
+import Planet from "./Planeta"
+import { planetdata } from "../../data/planets";
 
 
-planetaRepositorio.add(newPlanet);
-class PlanetaRepositorio {
+class PlanetaRep {
   constructor() {
     this.planets = [];
   }
@@ -28,13 +23,14 @@ class PlanetaRepositorio {
     this.planets = this.planets.filter((planet) => planet.id !== id);
   }
 
-  update(id, name, date, cores, população, galaxia, sistemasolar, coordenadasespaciais, governante) {
+  update(id, name, date, cor1, cor2, população, galaxia,sistemasolar,coordenadasespaciais, governante) {
     const planet = this.get(id);
 
     if (planet) {
       planet.name = name;
       planet.date = date;
-      planet.cores = cores;
+      planet.cor1 = cor1;
+      planet.cor2 = cor2;
       planet.população = população;
       planet.galaxia = galaxia;
       planet.sistemasolar = sistemasolar;
@@ -45,5 +41,11 @@ class PlanetaRepositorio {
   }
 }
 
+const planetaRep = new PlanetaRep();
 
-export default PlanetaRepositorio;
+const newPlanet = new Planet(planetdata.name, planetdata.date, planetdata.cor1, planetdata.cor2, planetdata.população, planetdata.galaxia, planetdata.sistemasolar, planetdata.coordenadasespaciais, planetdata.governante || 0);
+
+
+planetaRep.add(newPlanet);
+
+export default planetaRep;
