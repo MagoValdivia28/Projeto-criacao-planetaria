@@ -64,3 +64,50 @@ export default function Form({ route }) {
     setGovernante("");
     edit = false;
   };
+
+  return (
+    <LinearGradient colors={['#4CAF50', '#FFC107']}>
+      <ScrollView>
+        <LinearGradient colors={['#607D8B', '#263238', '#B0BEC5']}>
+          <Text>Cadastro de Espécies Alienígenas</Text>
+          <View>
+            <TextInput placeholder="Nome da Espécie" placeholderTextColor="white" onChangeText={text => setName(text)} value={name} />
+          </View>
+          <View>
+            <TextInput placeholder="Data do Primeiro Contato" placeholderTextColor="white" onChangeText={text => setDate(text)} value={date} />
+          </View>
+          <View>
+            <TextInput placeholder="Características Físicas" placeholderTextColor="white" onChangeText={text => setCaracteristicas(text)} value={caracteristicas} />
+          </View>
+          <View>
+            <TextInput placeholder="Planeta de Origem" placeholderTextColor="white" onChangeText={text => setPlaneta(text)} value={planeta} />
+          </View>
+          <View>
+            <TextInput placeholder="Nível de Inteligência" keyboardType="numeric" placeholderTextColor="white" onChangeText={text => setInteligencia(text)} value={inteligencia} />
+          </View>
+          <View>
+            <TextInput placeholder="Comunicação" placeholderTextColor="white" onChangeText={text => setComunicacao(text)} value={comunicacao} />
+          </View>
+          <View>
+            <TextInput placeholder="Método de Propulsão" placeholderTextColor="white" onChangeText={text => setPropulsao(text)} value={propulsao} />
+          </View>
+          <View>
+            <TextInput placeholder="Líder da Espécie" placeholderTextColor="white" onChangeText={text => setLider(text)} value={lider} />
+          </View>
+          <LinearGradient colors={['#FF5722', '#FF5722', '#fff']}>
+            <TouchableOpacity onPress={handleSpeciesAction}>
+              <Text>{isUpdate ? "Salvar Alterações" : "Criar Espécie"}</Text>
+            </TouchableOpacity>
+          </LinearGradient>
+          {isUpdate && (
+            <LinearGradient colors={['#F44336', '#F44336', '#fff']}>
+              <TouchableOpacity onPress={clearInputs}>
+                <Text>Cancelar Edição</Text>
+              </TouchableOpacity>
+            </LinearGradient>
+          )}
+        </LinearGradient>
+      </ScrollView>
+    </LinearGradient>
+  );
+}
