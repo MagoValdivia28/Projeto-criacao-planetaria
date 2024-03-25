@@ -1,20 +1,23 @@
-// class Planeta {
-//   constructor(nome, dataConquista, corPrimaria, corSecundaria, populacao, localizacao, governante, x, y, z, galaxia, sistemaSolar, coordenadasEspaciais, titulo) {
-//     this.nome = nome;
-//     this.dataConquista = dataConquista;
-//     this.corPrimaria = corPrimaria;
-//     this.corSecundaria = corSecundaria;
-//     this.populacao = populacao;
-//     this.localizacao = localizacao;
-//     this.governante = governante;
-//     this.titulo = titulo;
-//     this.x = x;
-//     this.y = y;
-//     this.z = z;
-//     this.galaxia = galaxia;
-//     this.sistemaSolar = sistemaSolar;
-//     this.coordenadasEspaciais = coordenadasEspaciais;
-//   }
-// }
+class Planeta {
+  constructor(nome, dataConquista, cor1, cor2, populacao, galaxia, galaxia, sistemaSolar, coordenadasEspaciais, titulo, governante) {
+    this.id = this.generateId();
+    this.nome = nome;
+    this.dataConquista = dataConquista;
+    this.cor1 = cor1;
+    this.cor2 = cor2;
+    this.populacao = populacao;
+    this.galaxia = galaxia;
+    this.titulo = titulo;
+    this.galaxia = galaxia;
+    this.sistemaSolar = sistemaSolar;
+    this.coordenadasEspaciais = coordenadasEspaciais;
+    this.governante = governante;
 
-// export default Planeta;
+  }
+
+  generateId() {
+    return Math.floor(Math.random() * 1000);
+  }
+}
+
+export default Planeta;
