@@ -28,16 +28,15 @@ export default function Home({ route }) {
 
           <View>
             <View>
-              <Text>{data.name}</Text>
-              <Text>{data.dataConquista}</Text>
-              <Text>{data.cor1}</Text>
-              <Text>{data.cor2}</Text>
-              <Text>{data.população}</Text>
-              <Text>{data.galaxia}</Text>
-              <Text>{data.sistemasolar}</Text>
-              <Text>{data.coordenadasespaciais}</Text>
-              <Text>{data.governante}</Text>
-
+            <Text>1 Nome do planeta: {data.name}</Text>
+              <Text>2 data de contato: {data.date}</Text>
+              <Text>3 cor1:{data.cor1}</Text>
+              <Text>4 cor2: {data.cor2}</Text>
+              <Text>5 populacao: {data.populacao}</Text>
+              <Text>6 galaxia: {data.galaxia}</Text>
+              <Text>7 sistemaSolar: {data.sistemaSolar}</Text>
+              <Text>8 coordenadasEspaciais: {data.coordenadasEspaciais}</Text>
+              <Text>9 governantes: {data.governante}</Text>
               <View>
                 <TouchableOpacity onPress={editPlanet}>
                   <Text>Editar</Text>
