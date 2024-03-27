@@ -14,7 +14,7 @@ export default function Home({ route }) {
   };
 
   const editPlanet = () => {
-    navigation.navigate("Category", { planet: data, edit: true });
+    navigation.navigate("Form", { planet: data, edit: true });
   };
 
   return (

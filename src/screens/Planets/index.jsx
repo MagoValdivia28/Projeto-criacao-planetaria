@@ -23,7 +23,6 @@ export default function Home() {
         <View style={styles.backgroundImage}>
           <Text style={styles.title}>Bem-vindo ao sistema interestrelar </Text>
         </View>
-        <View style={styles.separator}></View>
         <View style={styles.container2}>
           <Text style={styles.planetText1}>
             Este site foi desenvolvido para facilitar a gestão de planetas
@@ -51,7 +50,7 @@ export default function Home() {
                   <View style={styles.planetContainer2}>
                   
                     <Text style={styles.planetText}>
-                      planeta: {planet.name}
+                     {planet.name}
                     </Text>
                     <Text style={styles.planetText}>
                       população: {planet.populacao}
@@ -63,7 +62,7 @@ export default function Home() {
                     <TouchableOpacity
                       style={styles.detailsButton}
                       onPress={() =>
-                        navigation.navigate("Details", { data: planet })
+                        navigation.navigate("Form", { data: planet })
                       }
                     >
                       <Text style={styles.detailsButtonText}>Detalhes</Text>

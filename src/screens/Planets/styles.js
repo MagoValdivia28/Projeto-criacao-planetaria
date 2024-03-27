@@ -2,29 +2,37 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
-    backgroundImage: `url('../../../assets/imgTOP.jpg')`,
+    backgroundImage: `url('../../../assets/martePlanets.jpg')`,
     backgroundSize: "cover",
   },
   container3: {
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
+    backgroundColor: "rgba(0, 0, 0, 0.3)",
+    paddingTop: 20,
+    paddingRight: 20,
+    paddingLeft: 20,
+    marginTop: 20,
+
+    
   },
   container2: {
     padding: 20,
-    backgroundColor: "black",
     borderRadius: 10,
     margin: 20,
     marginBottom: 100,
   },
+  planetText1: {
+    marginBottom: 5,
+    color: "white",
+    width: "100%",
+  },
   container4: {
+    marginTop: 40,
     paddingTop: 35,
     backgroundColor: "white",
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    height: 1000,
-  },
-  separator: {
-    height: 5,
-    backgroundColor: "white",
+    height: 500,
+
   },
   textContainer: {
     marginBottom: 20,
@@ -42,7 +50,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     margin: 40,
-    textAlign: "center",
     color: "white",
   },
   planetContainer: {
@@ -54,17 +61,17 @@ const styles = StyleSheet.create({
   planetContainer2: {
     display: "flex",
     flexDirection: "row", // Add this line to make the text elements appear side by side
-    justifyContent: "center",
+    justifyContent: "space-between",
+    alignItems: "center",
+    
   },
-  planetText1: {
-    marginBottom: 5,
-    color: "white",
-    width: "100%",
-  },
+
   planetText: {
     marginBottom: 5,
     color: "black",
     width: "100%",
+    fontWeight: "bold",
+
   },
   detailsButton: {
     backgroundColor: "blue",

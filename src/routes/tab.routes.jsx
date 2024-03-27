@@ -1,11 +1,10 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Feather } from "@expo/vector-icons";
-
+import Details from "../screens/Details";
 import Home from "../screens/Home";
 import Profile from "../screens/Profile";
-import Category from "../screens/Category";
-import Details from "../screens/Details";
-import planetdata from "../data/planets";
+import Planets from "../screens/Planets";
+import Form from "../screens/Form";
 
 import planetRep from "../models/Planeta/PlanetaRepository";
 
@@ -17,59 +16,45 @@ const TabRoutes = () => {
   return (
     <Tab.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName="Category"
-    
-    >
+      initialRouteName="Home"
+
+    > 
+
       <Tab.Screen
         name="Home"
         component={Home}
-        initialParams={{ planets }}
-        tabBarOptions={{ style: { display: "none" } }}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
-              name="aperture"
+              name="home"
               size={24}
               color={focused ? "#131313" : "#D6D6D6"}
             />
           ),
+          tabBarLabel: "Início",
+          tabBarActiveTintColor: "#131313",
+          tabBarInactiveTintColor: "#D6D6D6",
+        }}
+      />
 
+      <Tab.Screen
+        name="Planets"
+        component={Planets}
+        initialParams={{ planets }}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="globe"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
           tabBarLabel: "Planetas",
           tabBarActiveTintColor: "#131313",
           tabBarInactiveTintColor: "#D6D6D6",
         }}
       />
-
-      <Tab.Screen
-        name="details"
-        component={Details}
-        initialParams={{ data: planetdata }}
-        options={{
-          
-          tabBarLabel: "detalhes",
-          tabBarActiveTintColor: "#131313",
-          tabBarInactiveTintColor: "#D6D6D6",
-        }}
-      />
-
-      <Tab.Screen
-        name="Category"
-        component={Category}
-        initialParams={{ planet: null, edit: false }}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <Feather
-              name="list"
-              size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
-            />
-          ),
-          tabBarLabel: "Cadastro",
-          tabBarActiveTintColor: "#131313",
-          tabBarInactiveTintColor: "#D6D6D6",
-        }}
-      />
-      
+    
        <Tab.Screen
         name="Profile"
         component={Profile}
@@ -86,6 +71,41 @@ const TabRoutes = () => {
           tabBarInactiveTintColor: "#D6D6D6",
         }}
       />
+
+      <Tab.Screen 
+        name="Form" 
+        component={Form} 
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="edit"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          tabBarLabel: "Formulário",
+          tabBarActiveTintColor: "#131313",
+          tabBarInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
+      <Tab.Screen
+        name="Details"
+        component={Details}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Feather
+              name="info"
+              size={24}
+              color={focused ? "#131313" : "#D6D6D6"}
+            />
+          ),
+          tabBarLabel: "Detalhes",
+          tabBarActiveTintColor: "#131313",
+          tabBarInactiveTintColor: "#D6D6D6",
+        }}
+      />
+
     </Tab.Navigator>
   );
 };
