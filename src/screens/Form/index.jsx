@@ -47,7 +47,7 @@ export default function Form({ route }) {
       planetaRepository.add(newPlanet);
       clearInputs();
     }
-    navigation.navigate("Home");
+    navigation.navigate("Planets");
   };
 
   const clearInputs = () => {

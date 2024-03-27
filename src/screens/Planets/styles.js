@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    height: 500,
-
+    height: "auto",
+    paddingBottom:90
   },
   textContainer: {
     marginBottom: 20,
@@ -57,11 +57,11 @@ const styles = StyleSheet.create({
     borderColor: "lightgray",
     padding: 10,
     borderBottomWidth: 2,
+    
   },
   planetContainer2: {
     display: "flex",
     flexDirection: "row", // Add this line to make the text elements appear side by side
-    justifyContent: "space-between",
     alignItems: "center",
     
   },
@@ -69,12 +69,11 @@ const styles = StyleSheet.create({
   planetText: {
     marginBottom: 5,
     color: "black",
-    width: "100%",
+    width: 10000,
     fontWeight: "bold",
-
   },
   detailsButton: {
-    backgroundColor: "blue",
+    backgroundColor: "red",
     padding: 10,
     borderRadius: 5,
     alignItems: "center",
@@ -84,6 +83,12 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
   },
+  planetImage: {
+    width: 50,
+    height: 50,
+    marginRight: 20,
+  },  
+
 });
 
 export default styles;

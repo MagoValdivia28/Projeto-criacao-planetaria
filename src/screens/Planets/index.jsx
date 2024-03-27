@@ -33,8 +33,9 @@ export default function Home() {
           </Text>
         </View>
         <View style={styles.container4}>
+          
           <View style={styles.titlePlanets}>
-            <Title style={styles.planetText} title="Planetas" />
+            <Title style={styles.planetText} title="Planetas cadastrados:" />
             <TouchableOpacity
               style={styles.detailsButton}
               onPress={() => navigation.navigate("Form", { edit: false })}
@@ -48,13 +49,12 @@ export default function Home() {
               {allPlanets.map((planet) => (
                 <View key={planet.id} style={styles.planetContainer}>
                   <View style={styles.planetContainer2}>
-                  
+
+                    <Image source={require("../../../assets/planeta.png")} style={styles.planetImage} />
                     <Text style={styles.planetText}>
                      {planet.name}
                     </Text>
-                    <Text style={styles.planetText}>
-                      população: {planet.populacao}
-                    </Text>
+
                     <Text style={styles.planetText}>
                       governante: {planet.governante}
                     </Text>
@@ -73,7 +73,7 @@ export default function Home() {
             </View>
           ) : (
             <Text>Não há planetas cadastrados...</Text>
-          )}
+            )}
         </View>
       </View>
     </ScrollView>

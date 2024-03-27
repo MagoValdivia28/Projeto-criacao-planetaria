@@ -1,6 +1,6 @@
 export const planetdata ={
   id: 1,
-  name: "Terra",
+  name: "TERRA",
   date: "25/06/2006",
   cor1: "verde",
   cor2: "branco",
