@@ -1,8 +1,8 @@
 import React from 'react';
-import { View, Text, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text, ScrollView, TouchableOpacity, Image } from 'react-native';
 import Planetarepository from '../../models/Planeta/PlanetaRepository';
 import { useNavigation } from "@react-navigation/native";
-
+import styles from './styles';
 
 export default function Home({ route }) {
   const navigation = useNavigation();
@@ -18,41 +18,35 @@ export default function Home({ route }) {
   };
 
   return (
-      <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.heading}>Detalhes do planeta</Text>
         <View>
-          {data ? (
-            <Text>Detalhes dos planetas:</Text>
-          ) : (
-            <Text>Selecione um planeta</Text>
-          )}
-
-          <View>
+          <View style={styles.profileInfo}>
+          <Image source={require("../../../assets/planeta.png")} style={styles.img} />
+            <Text style={styles.info}> Nome do planeta: {data.name}</Text>
+            <Text style={styles.info}> data de contato: {data.date}</Text>
+            <Text style={styles.info}> cor1:{data.cor1}</Text>
+            <Text style={styles.info}> cor2: {data.cor2}</Text>
+            <Text style={styles.info}> populacao: {data.populacao}</Text>
+            <Text style={styles.info}> galaxia: {data.galaxia}</Text>
+            <Text style={styles.info}> sistemaSolar: {data.sistemaSolar}</Text>
+            <Text style={styles.info}> coordenadasEspaciais: {data.coordenadasEspaciais}</Text>
+            <Text style={styles.info}> governantes: {data.governante}</Text>
             <View>
-            <Text>1 Nome do planeta: {data.name}</Text>
-              <Text>2 data de contato: {data.date}</Text>
-              <Text>3 cor1:{data.cor1}</Text>
-              <Text>4 cor2: {data.cor2}</Text>
-              <Text>5 populacao: {data.populacao}</Text>
-              <Text>6 galaxia: {data.galaxia}</Text>
-              <Text>7 sistemaSolar: {data.sistemaSolar}</Text>
-              <Text>8 coordenadasEspaciais: {data.coordenadasEspaciais}</Text>
-              <Text>9 governantes: {data.governante}</Text>
-              <View>
-                <TouchableOpacity onPress={editPlanet}>
-                  <Text>Editar</Text>
-                </TouchableOpacity>
-              </View>
-
-              <View>
-                <TouchableOpacity onPress={deletePlanet}>
-                  <Text>Remover</Text>
-                </TouchableOpacity>
-              </View>
-
+              <TouchableOpacity style={styles.button} onPress={editPlanet}>
+                <Text style={styles.buttonText}>Editar</Text>
+              </TouchableOpacity>
             </View>
+
+            <View>
+              <TouchableOpacity style={styles.cancelButton} onPress={deletePlanet}>
+                <Text style={styles.cancelButtonText}>Remover</Text>
+              </TouchableOpacity>
+            </View>
+
           </View>
         </View>
-      </ScrollView>
+      </View>
   );
 
 }

@@ -5,7 +5,7 @@ import styles from './styles';
 
 export default function Profile() {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
+    <View style={styles.container}>
         <Text style={styles.heading}>SOBRE O CRIADOR</Text>
       <View style={styles.profileInfo}>
         <Image source={require("../../../assets/felipe.jpg")} style={styles.img} />
@@ -17,6 +17,6 @@ export default function Profile() {
         <Text style={styles.info}>Email: {Sobre.email}</Text>
         <Text style={styles.info}>Telefone: {Sobre.phone}</Text>
       </View>
-    </ScrollView>
+    </View>
   );
 }
