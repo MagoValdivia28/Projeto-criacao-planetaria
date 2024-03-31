@@ -65,45 +65,46 @@ export default function Form({ route }) {
   };
 
   return (
-      <ScrollView>
-          <Text >Cadastro</Text>
-          <View>
-            <TextInput placeholder="Nome da Espécie"  onChangeText={text => setName(text)} value={name} />
-          </View>
-          <View>
-            <TextInput placeholder="Data do Primeiro Contato"  onChangeText={text => setDate(text)} value={date} />
-          </View>
-          <View>
-            <TextInput placeholder="Cor Primária"  onChangeText={text => setCor1(text)} value={cor1} />
-          </View>
-          <View>
-            <TextInput placeholder="Cor Secundária"  onChangeText={text => setCor2(text)} value={cor2} />
-          </View>
-          <View>
-            <TextInput placeholder="População"  onChangeText={text => setPopulação(text)} value={população} />
-          </View>
-          <View>
-            <TextInput placeholder="Galáxia"  onChangeText={text => setGalaxia(text)} value={galaxia} />
-          </View>
-          <View>
-            <TextInput placeholder="Sistema Solar"  onChangeText={text => setSistemasolar(text)} value={sistemasolar} />
-          </View>
-          <View>
-            <TextInput placeholder="Coordenadas Espaciais"  onChangeText={text => setCoordenadasespaciais(text)} value={coordenadasespaciais} />
-          </View>
-          <View>
-            <TextInput placeholder="Governante"  onChangeText={text => setGovernante(text)} value={governante} />
-          </View>
-          <View>
-            <TouchableOpacity onPress={handlePlanet}>
-              <Text>{isUpdate ? "Salvar Alterações" : "Criar Planeta"}</Text>
-            </TouchableOpacity>
-          {isUpdate && (
-              <TouchableOpacity onPress={clearInputs}>
-                <Text>Cancelar Edição</Text>
-              </TouchableOpacity>
-          )}
-          </View>
-      </ScrollView>
+    <ScrollView style={styles.fundo}>
+      <View style={styles.container}>
+        <Text style={styles.title}>CADASTRE SEU PLANETA!!!</Text>
+        <View>
+
+          <TextInput style={styles.input} placeholder="Nome do planeta" onChangeText={text => setName(text)} value={name} />
+        </View>
+        <View>
+          <TextInput style={styles.input} placeholder="Data do Primeiro Contato" onChangeText={text => setDate(text)} value={date} />
+        </View>
+        <View>
+          <TextInput style={styles.input} placeholder="Cor Primária" onChangeText={text => setCor1(text)} value={cor1} />
+        </View>
+        <View>
+          <TextInput style={styles.input} placeholder="Cor Secundária" onChangeText={text => setCor2(text)} value={cor2} />
+        </View>
+        <View>
+          <TextInput style={styles.input} placeholder="População" onChangeText={text => setPopulação(text)} value={população} />
+        </View>
+        <View>
+          <TextInput style={styles.input} placeholder="Galáxia" onChangeText={text => setGalaxia(text)} value={galaxia} />
+        </View>
+        <View>
+          <TextInput style={styles.input} placeholder="Sistema Solar" onChangeText={text => setSistemasolar(text)} value={sistemasolar} />
+        </View>
+        <View>
+          <TextInput style={styles.input} placeholder="Coordenadas Espaciais" onChangeText={text => setCoordenadasespaciais(text)} value={coordenadasespaciais} />
+        </View>
+        <View>
+          <TextInput style={styles.input} placeholder="Governante" onChangeText={text => setGovernante(text)} value={governante} />
+        </View>
+        <TouchableOpacity style={styles.button} onPress={handlePlanet}>
+          <Text style={styles.buttonText}>{isUpdate ? "Salvar Alterações" : "Criar Planeta"}</Text>
+        </TouchableOpacity>
+        {isUpdate && (
+          <TouchableOpacity style={styles.cancelButton} onPress={clearInputs}>
+            <Text style={styles.cancelButtonText}>Cancelar Edição</Text>
+          </TouchableOpacity>
+        )}
+      </View>
+    </ScrollView>
   );
 }
