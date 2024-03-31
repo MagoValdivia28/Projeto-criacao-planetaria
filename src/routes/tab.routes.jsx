@@ -61,28 +61,25 @@ const TabRoutes = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
-              name="user"
-              size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
+            name="user"
+            size={24}
+            color={focused ? "#131313" : "#D6D6D6"}
             />
-          ),
-          tabBarLabel: "Perfil",
-          tabBarActiveTintColor: "#131313",
-          tabBarInactiveTintColor: "#D6D6D6",
-        }}
-      />
+            ),
+            tabBarLabel: "Perfil",
+            tabBarActiveTintColor: "#131313",
+            tabBarInactiveTintColor: "#D6D6D6",
+          }}
+          />
 
       <Tab.Screen 
         name="Form" 
         component={Form} 
+        initialParams={{ hidden: true }}
         options={{
-          tabBarIcon: ({ focused }) => (
-            <Feather
-              name="edit"
-              size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
-            />
-          ),
+          tabBarItemStyle: {
+            display: 'none',
+          },
           tabBarLabel: "Formulário",
           tabBarActiveTintColor: "#131313",
           tabBarInactiveTintColor: "#D6D6D6",
@@ -92,14 +89,11 @@ const TabRoutes = () => {
       <Tab.Screen
         name="Details"
         component={Details}
+        initialParams={{ hidden: true }}
         options={{
-          tabBarIcon: ({ focused }) => (
-            <Feather
-              name="info"
-              size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
-            />
-          ),
+          tabBarItemStyle: {
+            display: 'none',
+          },
           tabBarLabel: "Detalhes",
           tabBarActiveTintColor: "#131313",
           tabBarInactiveTintColor: "#D6D6D6",
