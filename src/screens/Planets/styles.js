@@ -11,8 +11,6 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     paddingLeft: 20,
     marginTop: 20,
-
-    
   },
   container2: {
     padding: 20,
@@ -22,8 +20,8 @@ const styles = StyleSheet.create({
   },
   planetText1: {
     marginBottom: 5,
-    color: "white",
-    width: "100%",
+    color: "lightgray",
+    fontSize: 18,
   },
   container4: {
     marginTop: 40,
@@ -32,7 +30,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     height: "auto",
-    paddingBottom:90
+    paddingBottom: 90,
   },
   textContainer: {
     marginBottom: 20,
@@ -40,8 +38,8 @@ const styles = StyleSheet.create({
   titlePlanets: {
     display: "flex",
     flexDirection: "row",
-    justifyContent: "space-between", // Add this line to align the text elements with space between them
-    paddingtop: 20,
+    justifyContent: "space-between",
+    paddingTop: 20, // Corrected 'paddingtop' to 'paddingTop'
     paddingLeft: 20,
     paddingRight: 20,
     marginBottom: 20,
@@ -57,19 +55,23 @@ const styles = StyleSheet.create({
     borderColor: "lightgray",
     padding: 10,
     borderBottomWidth: 2,
-    
   },
   planetContainer2: {
     display: "flex",
-    flexDirection: "row", // Add this line to make the text elements appear side by side
+    flexDirection: "row",
     alignItems: "center",
-    
-  },
+    justifyContent: "space-between",
 
+  },
+  img_name: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
   planetText: {
     marginBottom: 5,
     color: "black",
-    width: 10000,
+    width: 100, // Changed width to a reasonable value
     fontWeight: "bold",
   },
   detailsButton: {
@@ -88,7 +90,6 @@ const styles = StyleSheet.create({
     height: 50,
     marginRight: 20,
   },  
-
 });
 
 export default styles;

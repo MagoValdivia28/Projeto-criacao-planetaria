@@ -21,19 +21,18 @@ export default function Home() {
     <ScrollView style={styles.container}>
       <View style={styles.container3}>
         <View style={styles.backgroundImage}>
-          <Text style={styles.title}>Bem-vindo ao sistema interestrelar </Text>
+          <Text style={styles.title}>
+            Planetas cadastratados no Sistema Interestrelar </Text>
         </View>
         <View style={styles.container2}>
           <Text style={styles.planetText1}>
-            Este site foi desenvolvido para facilitar a gestão de planetas
-            conquistados. Aqui, você pode cadastrar novos planetas, remover
-            aqueles que não estão mais sob seu domínio e atualizar informações
-            de planetas já cadastrados. Tudo para tornar sua jornada de
-            conquista espacial mais organizada e eficiente.
+            Seja bem-vindo à nossa coleção de planetas no sistema interestelar!
+            Aqui, você encontrará uma variedade de mundos fascinantes esperando para serem explorados.
+            Embarque nesta jornada intergaláctica conosco e mergulhe nas maravilhas do universo além da nossa imaginação.
           </Text>
         </View>
         <View style={styles.container4}>
-          
+
           <View style={styles.titlePlanets}>
             <Title style={styles.planetText} title="Planetas cadastrados:" />
             <TouchableOpacity
@@ -49,15 +48,15 @@ export default function Home() {
               {allPlanets.map((planet) => (
                 <View key={planet.id} style={styles.planetContainer}>
                   <View style={styles.planetContainer2}>
+                    
+                    <View style={styles.img_name}>
+                      <Image source={require("../../../assets/planeta.png")} style={styles.planetImage} />
+                      <Text style={styles.planetText}>
+                        {planet.name}
+                      </Text>
+                    </View>
 
-                    <Image source={require("../../../assets/planeta.png")} style={styles.planetImage} />
-                    <Text style={styles.planetText}>
-                     {planet.name}
-                    </Text>
-
-                    <Text style={styles.planetText}>
-                      governante: {planet.governante}
-                    </Text>
+                    <Text style={styles.planetText}> governante: {planet.governante} </Text>
 
                     <TouchableOpacity
                       style={styles.detailsButton}
@@ -73,7 +72,7 @@ export default function Home() {
             </View>
           ) : (
             <Text>Não há planetas cadastrados...</Text>
-            )}
+          )}
         </View>
       </View>
     </ScrollView>

@@ -19,63 +19,48 @@ export default function Home() {
 
   return (
     <ScrollView style={styles.container}>
-      <View style={styles.container3}>
-        <View style={styles.backgroundImage}>
+      <View style={styles.container1}>
+        <View>
           <Text style={styles.title}>Bem-vindo ao sistema interestrelar </Text>
         </View>
-        <View style={styles.separator}></View>
+        <View>
+          <Text style={styles.subtitle}> 
+            Bem-vindo ao nosso app de gerenciamento de planetas intergaláctico!
+            Aqui, você está no controle completo - crie, edite e exclua planetas conforme desejar.
+            Prepare-se para uma experiência simples, mas incrível, onde o cosmos é o seu playground!</Text>
+        </View>
+        <Text style={styles.title2}>Nesse APP vc pode:</Text>
         <View style={styles.container2}>
-          <Text style={styles.planetText1}>
-            Este site foi desenvolvido para facilitar a gestão de planetas
-            conquistados. Aqui, você pode cadastrar novos planetas, remover
-            aqueles que não estão mais sob seu domínio e atualizar informações
-            de planetas já cadastrados. Tudo para tornar sua jornada de
-            conquista espacial mais organizada e eficiente.
-          </Text>
+          <TouchableOpacity
+            style={styles.button1}
+            onPress={() => navigation.navigate("Planets")}
+          >
+            <Text style={styles.buttonText}>Ver planetas</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={styles.button2}
+            onPress={() => navigation.navigate("CreatePlanet")}
+          >
+            <Text style={styles.buttonText}>Criar planeta</Text>
+          </TouchableOpacity>
         </View>
-        <View style={styles.container4}>
-          <View style={styles.titlePlanets}>
-            <Title style={styles.planetText} title="Planetas" />
-            <TouchableOpacity
-              style={styles.detailsButton}
-              onPress={() => navigation.navigate("Form", { edit: false })}
-            >
-              <Text style={styles.detailsButtonText}>Adicionar planeta</Text>
-            </TouchableOpacity>
-          </View>
+        <View style={styles.container2}>
+          <TouchableOpacity
+            style={styles.button3}
+            onPress={() => navigation.navigate("CreatePlanet")}
+          >
+            <Text style={styles.buttonText}>Criar planeta</Text>
+          </TouchableOpacity>
 
-          {allPlanets.length > 0 ? (
-            <View>
-              {allPlanets.map((planet) => (
-                <View key={planet.id} style={styles.planetContainer}>
-                  <View style={styles.planetContainer2}>
-                  
-                    <Text style={styles.planetText}>
-                      planeta: {planet.name}
-                    </Text>
-                    <Text style={styles.planetText}>
-                      população: {planet.populacao}
-                    </Text>
-                    <Text style={styles.planetText}>
-                      governante: {planet.governante}
-                    </Text>
+          <TouchableOpacity
+            style={styles.button4}
+            onPress={() => navigation.navigate("CreatePlanet")}
+          >
+            <Text style={styles.buttonText}>Criar planeta</Text>
+          </TouchableOpacity>
 
-                    <TouchableOpacity
-                      style={styles.detailsButton}
-                      onPress={() =>
-                        navigation.navigate("Details", { data: planet })
-                      }
-                    >
-                      <Text style={styles.detailsButtonText}>Detalhes</Text>
-                    </TouchableOpacity>
-                  </View>
-                </View>
-              ))}
-            </View>
-          ) : (
-            <Text>Não há planetas cadastrados...</Text>
-          )}
         </View>
+
       </View>
     </ScrollView>
   );
