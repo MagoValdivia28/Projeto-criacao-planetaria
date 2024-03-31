@@ -31,33 +31,7 @@ export default function Home() {
         </View>
         <Text style={styles.title2}>Nesse APP vc pode:</Text>
         <View style={styles.container2}>
-          <TouchableOpacity
-            style={styles.button1}
-            onPress={() => navigation.navigate("Planets")}
-          >
-            <Text style={styles.buttonText}>Ver planetas</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            style={styles.button2}
-            onPress={() => navigation.navigate("CreatePlanet")}
-          >
-            <Text style={styles.buttonText}>Criar planeta</Text>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.container2}>
-          <TouchableOpacity
-            style={styles.button3}
-            onPress={() => navigation.navigate("CreatePlanet")}
-          >
-            <Text style={styles.buttonText}>Criar planeta</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.button4}
-            onPress={() => navigation.navigate("CreatePlanet")}
-          >
-            <Text style={styles.buttonText}>Criar planeta</Text>
-          </TouchableOpacity>
+         
 
         </View>
 
