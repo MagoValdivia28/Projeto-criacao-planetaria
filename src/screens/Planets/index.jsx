@@ -61,7 +61,7 @@ export default function Home() {
                     <TouchableOpacity
                       style={styles.detailsButton}
                       onPress={() =>
-                        navigation.navigate("Form", { data: planet })
+                        navigation.navigate("Details", { data: planet })
                       }
                     >
                       <Text style={styles.detailsButtonText}>Detalhes</Text>

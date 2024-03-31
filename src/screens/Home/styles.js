@@ -36,7 +36,7 @@ const styles = StyleSheet.create({
   container2: {
     flexDirection: "row",
     justifyContent: "center",
-    marginTop: 20,
+    paddingTop: 20,
   },
 
   button1: {
