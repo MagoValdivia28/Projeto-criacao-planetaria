@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native'
-import styles from './styles'
+import React, { useState, useEffect } from "react";
+import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import styles from './styles';
 import { useNavigation } from '@react-navigation/native';
-import Planet from '../../models/Planeta/Planeta'
-import planetaRepository from '../../models/Planeta/PlanetaRepository'
+import Planet from '../../models/Planeta/Planeta';
+import planetaRepository from '../../models/Planeta/PlanetaRepository';
 
 export default function Form({ route }) {
-  let { planet, edit } = route.params;
+  const { planet, edit } = route.params;
 
   const [name, setName] = useState("");
   const [date, setDate] = useState("");
@@ -18,6 +18,7 @@ export default function Form({ route }) {
   const [coordenadasespaciais, setCoordenadasespaciais] = useState("");
   const [governante, setGovernante] = useState("");
   const [isUpdate, setIsUpdate] = useState(edit);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigation = useNavigation();
 
@@ -39,6 +40,9 @@ export default function Form({ route }) {
   }, [planet, edit]);
 
   const handlePlanet = () => {
+    const isValid = validateInputs();
+    if (!isValid) return;
+
     if (isUpdate) {
       planetaRepository.update(planet.id, name, date, cor1, cor2, população, galaxia, sistemasolar, coordenadasespaciais, governante || 0);
       clearInputs();
@@ -61,7 +65,18 @@ export default function Form({ route }) {
     setSistemasolar("");
     setCoordenadasespaciais("");
     setGovernante("");
-    edit = false;
+    setErrorMessage("");
+  };
+
+  const validateInputs = () => {
+    if (!name || !date || !cor1 || !cor2 || !população || !galaxia || !sistemasolar || !coordenadasespaciais || !governante) {
+      setErrorMessage("Todos os campos devem ser preenchidos.");
+      return false;
+    }
+
+    // Adicione mais validações conforme necessário
+
+    return true;
   };
 
   return (
@@ -69,7 +84,6 @@ export default function Form({ route }) {
       <View style={styles.container}>
         <Text style={styles.title}>CADASTRE SEU PLANETA!!!</Text>
         <View>
-
           <TextInput style={styles.input} placeholder="Nome do planeta" onChangeText={text => setName(text)} value={name} />
         </View>
         <View>
@@ -96,6 +110,7 @@ export default function Form({ route }) {
         <View>
           <TextInput style={styles.input} placeholder="Governante" onChangeText={text => setGovernante(text)} value={governante} />
         </View>
+        {errorMessage ? <Text style={styles.errorMessage}>{errorMessage}</Text> : null}
         <TouchableOpacity style={styles.button} onPress={handlePlanet}>
           <Text style={styles.buttonText}>{isUpdate ? "Salvar Alterações" : "Criar Planeta"}</Text>
         </TouchableOpacity>

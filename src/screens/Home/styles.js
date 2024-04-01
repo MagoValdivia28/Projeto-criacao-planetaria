@@ -8,8 +8,7 @@ const styles = StyleSheet.create({
   container1: {
     backgroundColor: "rgba(0, 0, 0, 0.4)",
     paddingTop: 20,
-    flex: 1,
-  },  
+    paddingBottom: 200,},  
   title: {
     fontSize: 24,
     fontWeight: "bold",
@@ -46,18 +45,26 @@ const styles = StyleSheet.create({
   button: {
     backgroundColor: '#610575',
     paddingVertical: 30,
-    paddingHorizontal: 100,
+    paddingHorizontal: 80,
     borderRadius: 5,
     margin: 10,
   },
   buttonText: {
     color: '#ffffff',
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
     textAlign: 'center',
   },
+  subtitle2: {
+    fontSize: 18,
+    marginTop: 35,
+    marginBottom: 20,
+    marginLeft: 40,
+    marginRight: 10,
 
-
+    textAlign: "left",
+    color: "white",
+  },
 });
 
 export default styles;
