@@ -8,6 +8,7 @@ const styles = StyleSheet.create({
   container1: {
     backgroundColor: "rgba(0, 0, 0, 0.4)",
     paddingTop: 20,
+    flex: 1,
   },  
   title: {
     fontSize: 24,
@@ -38,39 +39,22 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     paddingTop: 20,
   },
+  navigationButtons: {
 
-  button1: {
-    backgroundImage: `url('../../../assets/imgBotao1.jpg')`,
-    backgroundSize: "cover",
-    padding: 25,
-    margin: 10,
-    borderRadius: 5,
+    justifyContent: 'space-between',
   },
-  button2: {
-    backgroundImage: `url('../../../assets/imgBotao2.jpg')`,
-    backgroundSize: "cover",
-    padding: 25,
-    margin: 10,
+  button: {
+    backgroundColor: '#610575',
+    paddingVertical: 30,
+    paddingHorizontal: 100,
     borderRadius: 5,
-  },
-  button3: {
-    backgroundColor: "white",
-    padding: 25,
     margin: 10,
-    borderRadius: 5,
   },
-  button4: {
-    backgroundColor: "white",
-    padding: 25,
-    margin: 10,
-    borderRadius: 5,
-  },
-
   buttonText: {
-    color: "white",
-    backgroundColor: "rgba(0, 0, 0, 0.4)",
-    padding: 25,
-    fontSize: 23,
+    color: '#ffffff',
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 
 

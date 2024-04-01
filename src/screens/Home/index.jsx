@@ -31,11 +31,24 @@ export default function Home() {
         </View>
         <Text style={styles.title2}>Nesse APP vc pode:</Text>
         <View style={styles.container2}>
-         
+        <View style={styles.navigationButtons}>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Home')}>
+              <Text style={styles.buttonText}>Home</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Profile')}>
+              <Text style={styles.buttonText}>conhecer sobre o criador</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Planets')}>
+              <Text style={styles.buttonText}>ver os planetas cadastrados</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('Form')}>
+              <Text style={styles.buttonText}>cadastrar planetas</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
 
         </View>
 
-      </View>
     </ScrollView>
   );
 }

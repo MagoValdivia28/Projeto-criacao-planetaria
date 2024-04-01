@@ -17,9 +17,25 @@ const TabRoutes = () => {
     <Tab.Navigator
       screenOptions={{ headerShown: false }}
       initialRouteName="Home"
-
-    > 
-
+      tabBarOptions={{
+        activeTintColor: '#FFD700', // Amarelo ouro
+        inactiveTintColor: 'gray', // Cinza
+        tabBarStyle: {
+          backgroundColor: '#000000', // Preto
+          borderTopWidth: 0,
+          paddingHorizontal: 20, // Margem horizontal
+          paddingVertical: 10, // Margem vertical
+          borderRadius: 20, // Borda arredondada
+          marginHorizontal: 20, // Margem horizontal externa
+          marginBottom: 20, // Margem inferior externa
+        },
+        labelStyle: {
+          fontSize: 12,
+          fontWeight: 'bold',
+          marginBottom: 5, // Espaço extra abaixo do texto
+        },
+      }}
+    >
       <Tab.Screen
         name="Home"
         component={Home}
@@ -28,12 +44,10 @@ const TabRoutes = () => {
             <Feather
               name="home"
               size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
+              color={focused ? "#FFD700" : "gray"}
             />
           ),
           tabBarLabel: "Início",
-          tabBarActiveTintColor: "#131313",
-          tabBarInactiveTintColor: "#D6D6D6",
         }}
       />
 
@@ -46,31 +60,29 @@ const TabRoutes = () => {
             <Feather
               name="globe"
               size={24}
-              color={focused ? "#131313" : "#D6D6D6"}
+              color={focused ? "#FFD700" : "gray"}
             />
           ),
           tabBarLabel: "Planetas",
-          tabBarActiveTintColor: "#131313",
-          tabBarInactiveTintColor: "#D6D6D6",
         }}
       />
-    
-       <Tab.Screen
+
+      <Tab.Screen
         name="Profile"
         component={Profile}
         options={{
           tabBarIcon: ({ focused }) => (
             <Feather
-            name="user"
-            size={24}
-            color={focused ? "#131313" : "#D6D6D6"}
+              name="user"
+              size={24}
+              color={focused ? "#FFD700" : "gray"}
             />
-            ),
-            tabBarLabel: "Perfil",
-            tabBarActiveTintColor: "#131313",
-            tabBarInactiveTintColor: "#D6D6D6",
-          }}
-          />
+          ),
+          tabBarLabel: "Perfil",
+        }}
+      />
+
+
 
       <Tab.Screen 
         name="Form" 
