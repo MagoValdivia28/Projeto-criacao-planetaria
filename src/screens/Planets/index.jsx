@@ -56,7 +56,7 @@ export default function Home() {
                       </Text>
                     </View>
 
-                    <Text style={styles.planetText}> governante: {planet.governante} </Text>
+                    <Text style={styles.planetText}> lider: {planet.governante} </Text>
 
                     <TouchableOpacity
                       style={styles.detailsButton}

@@ -18,6 +18,7 @@ export default function Home({ route }) {
   };
 
   return (
+    <ScrollView>
       <View style={styles.container}>
         <Text style={styles.heading}>Detalhes do planeta</Text>
         <View>
@@ -47,6 +48,7 @@ export default function Home({ route }) {
           </View>
         </View>
       </View>
+    </ScrollView>
   );
 
 }
