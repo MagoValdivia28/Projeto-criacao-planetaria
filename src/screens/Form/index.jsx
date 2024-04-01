@@ -69,12 +69,20 @@ export default function Form({ route }) {
   };
 
   const validateInputs = () => {
-    if (!name || !date || !cor1 || !cor2 || !população || !galaxia || !sistemasolar || !coordenadasespaciais || !governante) {
+    if (!name || !cor1 || !cor2 || !população || !galaxia || !sistemasolar || !coordenadasespaciais || !governante) {
       setErrorMessage("Todos os campos devem ser preenchidos.");
       return false;
     }
 
-    // Adicione mais validações conforme necessário
+    if (name.length < 3) {
+      setErrorMessage("O nome do planeta deve ter pelo menos 3 caracteres.");
+      return false;
+    }
+
+    if (isNaN(Number(população)) || Number(população) <= 0) {
+      setErrorMessage("População deve ser um número positivo.");
+      return false;
+    }
 
     return true;
   };
