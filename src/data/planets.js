@@ -4,7 +4,7 @@ export const planetdata ={
   date: "25/06/2006",
   cor1: "verde",
   cor2: "branco",
-  população: "8 Bilhões",
+  população: "7.861.000.000",
   galaxia: "andromeda", 
   sistemasolar: "Sim",
   coordenadasespaciais: "41 24.2028, 2 10.4418",
